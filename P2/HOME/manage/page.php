@@ -77,7 +77,7 @@
         }
 
         .category {
-            padding: 10px;
+            padding: 8px;
             color: white;
             font-size: 20px;
             font-weight: 600;
@@ -89,8 +89,8 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            height: 250px; /* เพิ่มความสูงให้มากขึ้น */
-            width: 100%;
+            height: 170px; /* เพิ่มความสูงให้มากขึ้น */
+            width: 70%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -142,7 +142,7 @@
         }
 
         .category-train::after {
-            background-image: url('http://www.kunlajin-hy.com/V3/event_pic/59_12_25/004.jpg');
+            background-image: url('https://www.kunlajin-hy.com/V3/event_pic/60_07_18_20/003.jpg');
         }
 
         .category-activity::after {
@@ -209,6 +209,7 @@
         <a href="/P2/HOME/manage/academic.php" class="category category-academic">
             <span>งานวิชาการ</span>
         </a>
+
 
         <a href="/P2/HOME/manage/train.php" class="category category-train">
             <span>อบรม/สัมมนา</span>
