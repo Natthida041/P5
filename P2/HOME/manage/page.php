@@ -4,17 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>โรงเรียนอนุบาลกุลจินต์</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
+        :root {
+            --primary: #FB6F92; /* Pink primary color */
+            --secondary: #FCE4EC; /* Light pink background */
+            --accent: #FFBCCD; /* Accent color for hover effects */
+            --text: #2C3E50; /* Dark text color */
+            --light: #ffffff; /* White for text on dark backgrounds */
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #9DCAEB;
-            color: #333;
-            min-height: 100vh;
-            padding-bottom: 60px;
-            position: relative;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #B8DFFD;
         }
 
         .header {
@@ -65,107 +77,74 @@
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ hover */
         }
 
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .category {
-            padding: 8px;
-            color: white;
-            font-size: 20px;
-            font-weight: 600;
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            height: 170px; /* เพิ่มความสูงให้มากขึ้น */
-            width: 70%;
+        .main {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
-        .category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            transition: background 0.3s ease;
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .category::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: cover;
-            background-position: center top;
-            z-index: -1;
-            transition: transform 0.3s ease;
+        .category-card {
+            background: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text);
         }
 
-        .category:hover::before {
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .category:hover::after {
-            transform: scale(1.05);
-        }
-
-        .category span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .category:hover {
+        .category-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .category-academic::after {
-            background-image: url('https://www.kunlajin-hy.com/V3/event_pic/56-09-19/064.jpg');
+        .category-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
         }
 
-        .category-train::after {
-            background-image: url('https://www.kunlajin-hy.com/V3/event_pic/60_07_18_20/003.jpg');
+        .category-content {
+            padding: 1.5rem;
         }
 
-        .category-activity::after {
-            background-image: url('http://www.kunlajin-hy.com/V3/event_pic/58-01-29/049.jpg');
+        .category-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .category-description {
+            font-size: 0.9rem;
+            color: #666;
         }
 
         .footer {
-            background-color: #FB6F92;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            font-size: 14px;
-            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            background: var(--primary);
+            color: var(--light);
+            padding: 2rem;
+            margin-top: 4rem;
         }
 
-
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.9rem;
+        }
         @media (max-width: 768px) {
-            .header {
-                font-size: 24px;
-                padding: 15px;
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
 
             .nav {
@@ -173,25 +152,13 @@
                 justify-content: center;
             }
 
-            .nav a {
-                margin: 5px;
-                font-size: 16px;
-            }
-
-            .category {
-                padding: 30px;
-                font-size: 20px;
-                height: 150px; /* ปรับความสูงให้เหมาะสมกับหน้าจอมือถือ */
-            }
-
-            .footer {
-                position: relative;
-                padding: 10px;
-                font-size: 12px;
+            .categories {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+<body>
 <body>
     <div class="header">
         <div class="title">
@@ -205,23 +172,39 @@
         </div>
     </div>
 
-    <div class="content">
-        <a href="/P2/HOME/manage/academic.php" class="category category-academic">
-            <span>งานวิชาการ</span>
-        </a>
+    <main class="main">
+        <div class="categories">
+            <a href="/P2/HOME/manage/academic.php" class="category-card">
+                <img src="https://www.kunlajin-hy.com/V3/event_pic/56-09-19/064.jpg" alt="งานวิชาการ" class="category-image">
+                <div class="category-content">
+                    <h2 class="category-title">งานวิชาการ</h2>
+                    <p class="category-description">การบริหารงานวิชาการเป็นงานที่สำคัญสำหรับผู้บริหารสถานศึกษา เน้นการปรับปรุงคุณภาพการเรียนการสอนเพื่อความสำเร็จของสถานศึกษา</p>
+                </div>
+            </a>
 
+            <a href="/P2/HOME/manage/train.php" class="category-card">
+                <img src="https://www.kunlajin-hy.com/V3/event_pic/60_07_18_20/003.jpg" alt="อบรม/สัมมนา" class="category-image">
+                <div class="category-content">
+                    <h2 class="category-title">อบรม/สัมมนา</h2>
+                    <p class="category-description">การจัดอบรมและสัมมนาเพื่อเสริมสร้างความรู้และทักษะที่จำเป็นสำหรับบุคลากรและนักเรียน</p>
+                </div>
+            </a>
 
-        <a href="/P2/HOME/manage/train.php" class="category category-train">
-            <span>อบรม/สัมมนา</span>
-        </a>
+            <a href="/P2/HOME/manage/activity.php" class="category-card">
+                <img src="http://www.kunlajin-hy.com/V3/event_pic/58-01-29/049.jpg" alt="กิจกรรม" class="category-image">
+                <div class="category-content">
+                    <h2 class="category-title">กิจกรรม</h2>
+                    <p class="category-description">กิจกรรมสร้างสรรค์ต่างๆ ที่จัดขึ้นเพื่อพัฒนาทักษะและส่งเสริมการเรียนรู้ในทุกๆ ด้านของนักเรียน</p>
+                </div>
+            </a>
+        </div>
+    </main>
 
-        <a href="/P2/HOME/manage/activity.php" class="category category-activity">
-            <span>กิจกรรม</span>
-        </a>
-    </div>
-
-    <div class="footer">
-        &copy; 1 ถนนรณภูมิ ตำบลหาดใหญ่ อำเภอหาดใหญ่ จังหวัดสงขลา 90110. Tel. : 074-257884, Fax. : 074-258107, E-mail : kunlajin@gmail.com
-    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>1 ถนนรณภูมิ ตำบลหาดใหญ่ อำเภอหาดใหญ่ จังหวัดสงขลา 90110</p>
+            <p>โทร: 074-257884 | Fax: 074-258107 | E-mail: kunlajin@gmail.com</p>
+        </div>
+    </footer>
 </body>
 </html>
